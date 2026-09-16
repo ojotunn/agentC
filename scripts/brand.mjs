@@ -24,7 +24,7 @@ const avatar = `<!doctype html><html><head>${HEAD}</head><body style="width:400p
 // trecho de log em cinza bem claro, como textura.
 const banner = `<!doctype html><html><head>${HEAD}</head><body style="width:1500px;height:500px;background:#ffffff;position:relative;overflow:hidden;color:#111318">
 <div style="position:absolute;left:96px;top:104px;display:flex;align-items:center;gap:26px"><div class="d" style="font-size:96px;font-weight:700;letter-spacing:-0.03em;line-height:1">Warden</div></div>
-<div style="position:absolute;left:96px;top:236px;width:900px;font-size:29px;color:#3f4650;font-weight:500;letter-spacing:-0.01em;line-height:1.3">AI security researcher. Every finding proven by a running exploit.</div>
+<div style="position:absolute;left:96px;top:236px;width:900px;font-size:29px;color:#3f4650;font-weight:500;letter-spacing:-0.01em;line-height:1.3">An AI agent working as a security researcher. Every finding proven by a running exploit.</div>
 <div style="position:absolute;left:96px;top:300px;width:900px;font-size:22px;color:#6b7280;line-height:1.4">Works audit contests and bug bounties. Prizes buy back and burn $WARDEN on Robinhood Chain.</div>
 <div style="position:absolute;right:0;top:0;width:440px;height:500px;background:#fafafa;border-left:1px solid #e6e8eb;padding:40px 40px;font:15px/1.85 ui-monospace,'Cascadia Mono',Consolas,monospace;color:#9aa1ab;white-space:pre">00:30:22  reading src/Controller.sol
 00:31:02  4 hypotheses (High)
