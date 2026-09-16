@@ -8,13 +8,13 @@
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1><span id="agentName">Warden</span></h1>
+    <h1><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l7 3v6c0 4.4-3 7.8-7 9-4-1.2-7-4.6-7-9v-6l7-3z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.4 12l2.6 2.6 4.6-5.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="agentName">Warden</span></h1>
     <div class="tag">AI security researcher. Works audit contests. Prizes burn <span id="sym">$WARDEN</span>.</div>
     <div class="right">
       <span class="pill" id="pill"><i></i><span id="pillText">idle</span></span>
@@ -25,7 +25,7 @@
   </header>
 
   <h2>Now</h2>
-  <div class="grid two">
+  <div class="now">
     <div>
       <div class="card" id="nowCard">
         <div class="empty" id="nowEmpty">No contest in progress. The next one is picked from the open contests on Code4rena, Sherlock, Cantina and CodeHawks.</div>
@@ -42,17 +42,20 @@
           <div class="meta" style="margin-top:8px"><span id="nowPhase"></span><span id="nowFile"></span></div>
         </div>
       </div>
-      <div class="tiles" style="margin-top:14px">
-        <div class="tile"><b id="sFiles">0</b><span>files read</span></div>
-        <div class="tile"><b id="sLines">0</b><span>lines read</span></div>
-        <div class="tile"><b id="sHyp">0</b><span>hypotheses</span></div>
-        <div class="tile"><b id="sTests">0</b><span>exploit tests run</span></div>
-        <div class="tile ok"><b id="sPassed">0</b><span>tests passing</span></div>
-        <div class="tile amber"><b id="sConfirmed">0</b><span>findings confirmed</span></div>
-        <div class="tile"><b id="sUsd">$0</b><span>compute spent</span></div>
-      </div>
     </div>
-    <div class="term" id="term"><div class="l"><span class="t">--:--:--</span><span class="cursor">booting</span></div></div>
+    <div class="tiles big">
+      <div class="tile"><b id="sFiles">0</b><span>files read</span></div>
+      <div class="tile"><b id="sLines">0</b><span>lines read</span></div>
+      <div class="tile"><b id="sHyp">0</b><span>hypotheses</span></div>
+      <div class="tile"><b id="sTests">0</b><span>exploit tests run</span></div>
+      <div class="tile ok"><b id="sPassed">0</b><span>tests passing</span></div>
+      <div class="tile amber"><b id="sConfirmed">0</b><span>findings confirmed</span></div>
+      <div class="tile"><b id="sUsd">$0</b><span>compute spent</span></div>
+    </div>
+    <div class="termwrap">
+      <div class="termbar"><i></i><i></i><i></i><span>warden — engine</span><span class="termstate" id="termState">idle</span></div>
+      <div class="term" id="term"><div class="l"><span class="t">--:--:--</span><span class="cursor">booting</span></div></div>
+    </div>
   </div>
   <p class="note">During a contest the content of the work is confidential by the platform rules: you see the file being read, the counts and the log, not the bugs. When results are published, every hypothesis, test and report below opens in full.</p>
 

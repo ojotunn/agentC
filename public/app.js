@@ -28,6 +28,8 @@ async function tick() {
   const working = s.engine && s.engine.status === 'running';
   $('pill').classList.toggle('on', !!working);
   $('pillText').textContent = working ? 'working' : 'idle';
+  $('termState').textContent = working ? 'running' : 'idle';
+  $('termState').classList.toggle('on', !!working);
 
   // contest atual: o que roda, senao o ultimo com run
   const cur = s.contests.find((c) => c.id === s.engine?.current) || [...s.contests].reverse().find((c) => c.run) || null;

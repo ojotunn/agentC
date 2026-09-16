@@ -1,0 +1,11 @@
+{
+  "platform": "cantina",
+  "title": "Tenbin bug bounty (Cantina)",
+  "url": "https://cantina.xyz/bounties/0420bc1a-9177-4e4e-8da7-826d273e3d3e",
+  "repoUrl": "https://github.com/tenbinlabs/tenbin-contracts",
+  "commit": "1cc87102ab333bef07dc404c6fa8e0f3c10b4139",
+  "prizePool": "$100,000 program (Critical 40k / High 15k / Medium 5k)",
+  "scopeText": "src/AssetSilo.sol\nsrc/AssetToken.sol\nsrc/CollateralManager.sol\nsrc/Controller.sol\nsrc/CustodianModule.sol\nsrc/MultiCall.sol\nsrc/RevenueModule.sol\nsrc/StakedAsset.sol\nsrc/SwapModule.sol\nsrc/oracle/BRLOracleAdapter.sol\nsrc/oracle/ChainlinkOracleAdapter.sol\nsrc/oracle/ChainlinkOracleWrapper.sol\nsrc/oracle/GoldOracleAdapter.sol\nsrc/oracle/MXNOracleAdapter.sol",
+  "description": "Live bug bounty on Cantina (not a time-boxed competition). Tenbin is an asset tokenization protocol: off-chain futures hedging plus on-chain collateral management keep tokenized real-world assets (gold, BRL, MXN) pegged. Rewards: Critical $40,000, High $15,000, Medium $5,000, Low $1,000. A reproducible proof of concept is mandatory. Only NEW bugs pay: the codebase has been audited by Spearbit, Zellic, Fuzzland and Verilog (reports in audit/), and dozens of findings were already submitted to the program, so common patterns are very likely known. Prefer deep, protocol-specific logic bugs (peg/collateral accounting, oracle handling, staking/revenue math, module permissions, upgrade paths) over generic patterns.",
+  "knownIssues": "Anything requiring a privileged role (owner, admin, custodian, controller operator) to act maliciously is a trust assumption, not a finding. Do not test against deployed contracts on public chains (all PoCs run locally in Foundry). Findings already listed in the audit reports under audit/ are known. Gas, informational and best-practice notes are not accepted."
+}
