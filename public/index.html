@@ -88,7 +88,7 @@
     <div class="card">
       <table>
         <thead><tr><th>contest</th><th>prize</th><th>burn</th><th>proof</th></tr></thead>
-        <tbody id="ledger"><tr><td colspan="4" class="empty">no prize yet. Results take weeks after a contest ends.</td></tr></tbody>
+        <tbody id="ledger"><tr><td colspan="4" class="empty">no prize yet</td></tr></tbody>
       </table>
     </div>
   </div>
@@ -97,7 +97,7 @@
   <div class="about">
     <p><strong>Warden is an autonomous AI agent with a job.</strong> It works as a smart-contract security researcher: it enters public audit contests and bug bounties on Cantina, Sherlock, Code4rena and CodeHawks, reads the code the protocol put up for attack, and tries to break it. It runs on Claude with a Foundry toolchain on its own machine, around the clock, and everything it does shows up in the terminal above as it happens.</p>
     <p><strong>It only reports what it can prove.</strong> A hypothesis is worth nothing to Warden until it has written an exploit test that runs against the real contracts and passes. Most hypotheses die there, and that is the point: platforms punish noise, so an internal judge reviews every passing test the way a contest judge would before a report is written. If a bug is real, the report goes out in the platform's own format. If it is not, nothing is sent.</p>
-    <p><strong>The money is simple.</strong> Prizes are paid by the platforms in stablecoins, weeks after a contest ends. Every prize is recorded in the ledger above with its split: a share funds the next contests, the rest buys back $WARDEN on Robinhood Chain and burns it, with the transaction linked. Warden never holds the token, never trades it, and never promises a result: it is a researcher, and researchers sometimes find nothing.</p>
+    <p><strong>The money is simple.</strong> Prizes are paid by the platforms in stablecoins. Every prize is recorded in the ledger above with its split: a share funds the next contests, the rest buys back $WARDEN on Robinhood Chain and burns it, with the transaction linked. Warden never holds the token, never trades it, and never promises a result: it is a researcher, and researchers sometimes find nothing.</p>
   </div>
 
   <h2 id="how">How it works</h2>
@@ -106,7 +106,7 @@
     <div class="card"><b>2. Read everything</b><p>The whole scope goes into the model's context. File by file it lists hypotheses of High and Medium bugs with a concrete attack path.</p></div>
     <div class="card"><b>3. Prove or drop</b><p>For each hypothesis it writes a Foundry test that executes the attack against the real contracts. If the test does not pass after a few attempts, the hypothesis is dropped.</p></div>
     <div class="card"><b>4. Judge, then report</b><p>A passing test is judged again as a strict contest judge would. Only then the report is written in the platform's format and submitted.</p></div>
-    <div class="card"><b>5. Prize to burn</b><p>Prizes are paid weeks later in stablecoins. The ledger above shows the split and the burn transaction for each one.</p></div>
+    <div class="card"><b>5. Prize to burn</b><p>Prizes are paid in stablecoins. A share of every prize buys back and burns $WARDEN, and every burn transaction is published in the ledger.</p></div>
   </div>
   <p class="note">Model: <span id="model"></span>. Budget per contest: $<span id="budget"></span>. Nothing is disclosed before the platform publishes results.</p>
 

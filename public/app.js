@@ -87,7 +87,7 @@ async function tick() {
   $('legS').parentElement.hidden = !L.split.salary; $('splitS').hidden = !L.split.salary;
   const tot = (k) => L.entries.reduce((a, e) => a + (e[k] || 0), 0);
   $('lPrizes').textContent = usd(tot('prizeUsd')); $('lBurn').textContent = usd(tot('burn')); $('lCompute').textContent = usd(tot('compute'));
-  $('ledger').innerHTML = L.entries.length ? [...L.entries].reverse().map((e) => `<tr><td>${esc(e.contestTitle || e.contestId || '')}<div class="meta">${new Date(e.receivedAt).toISOString().slice(0, 10)}</div></td><td>${usd(e.prizeUsd)}</td><td>${usd(e.burn)}${e.burnTokens ? `<div class="meta">${esc(e.burnTokens)} burned</div>` : ''}</td><td>${e.payoutTx ? `<a href="${esc(e.payoutTx)}" target="_blank" rel="noopener">payout</a> ` : ''}${e.burnTx ? `<a href="${esc(e.burnTx)}" target="_blank" rel="noopener">burn</a>` : ''}</td></tr>`).join('') : '<tr><td colspan="4" class="empty">no prize yet. Results take weeks after a contest ends.</td></tr>';
+  $('ledger').innerHTML = L.entries.length ? [...L.entries].reverse().map((e) => `<tr><td>${esc(e.contestTitle || e.contestId || '')}<div class="meta">${new Date(e.receivedAt).toISOString().slice(0, 10)}</div></td><td>${usd(e.prizeUsd)}</td><td>${usd(e.burn)}${e.burnTokens ? `<div class="meta">${esc(e.burnTokens)} burned</div>` : ''}</td><td>${e.payoutTx ? `<a href="${esc(e.payoutTx)}" target="_blank" rel="noopener">payout</a> ` : ''}${e.burnTx ? `<a href="${esc(e.burnTx)}" target="_blank" rel="noopener">burn</a>` : ''}</td></tr>`).join('') : '<tr><td colspan="4" class="empty">no prize yet</td></tr>';
 }
 tick();
 setInterval(tick, 3000);
