@@ -15,11 +15,12 @@ a:hover { border-color: var(--ink); }
 .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 24px 72px; }
 
 /* cabecalho */
-header { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; padding: 6px 0 22px; border-bottom: 1px solid var(--line); }
+header { padding: 6px 0 20px; border-bottom: 1px solid var(--line); }
+header .headrow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; }
 header h1 { margin: 0; display: flex; align-items: center; gap: 11px; font-family: var(--display); font-size: 27px; font-weight: 700; letter-spacing: -0.02em; }
 header h1 span, header h1 .wm { color: var(--ink); }
 header h1 .mark { height: 30px; width: auto; flex: none; margin-top: -2px; }
-header .tag { color: var(--dim); font-size: 14px; }
+header .tag { color: var(--dim); font-size: 14.5px; margin-top: 8px; }
 header .right { margin-left: auto; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; font-size: 13.5px; }
 header .right a { color: var(--ink2); border: 0; }
 header .right a:hover { color: var(--ink); }
