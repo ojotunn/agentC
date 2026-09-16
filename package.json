@@ -1,0 +1,23 @@
+{
+  "name": "warden",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Warden: an AI security researcher that competes in smart-contract audit contests; prizes fund the buyback and burn of its token on pons (Robinhood Chain).",
+  "engines": {
+    "node": ">=22.9"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "test": "node --test test/*.test.js",
+    "prova": "node --env-file-if-exists=.env scripts/prova-e2e.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.126.0",
+    "express": "^5.2.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.11.0"
+  }
+}

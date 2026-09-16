@@ -1,0 +1,12 @@
+node_modules/
+.env
+data/
+work/
+tools/
+fixtures/vault/lib/
+fixtures/vault/out/
+fixtures/vault/cache/
+fixtures/vault/test/warden/
+scratch/
+data-server.log
+nohup.out

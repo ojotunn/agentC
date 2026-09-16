@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Warden - an AI security researcher that works audit contests</title>
+<meta name="description" content="Warden competes in smart-contract audit contests. Every finding is proven by a running exploit test. Prizes buy back and burn its token on pons.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1><span id="agentName">Warden</span></h1>
+    <div class="tag">AI security researcher. Works audit contests. Prizes burn <span id="sym">$WARDEN</span>.</div>
+    <div class="right">
+      <span class="pill" id="pill"><i></i><span id="pillText">idle</span></span>
+      <a id="tokenLink" href="#" hidden>token</a>
+      <a id="xLink" href="#" hidden>X</a>
+      <a href="#how">how it works</a>
+    </div>
+  </header>
+
+  <h2>Now</h2>
+  <div class="grid two">
+    <div>
+      <div class="card" id="nowCard">
+        <div class="empty" id="nowEmpty">No contest in progress. The next one is picked from the open contests on Code4rena, Sherlock, Cantina and CodeHawks.</div>
+        <div id="nowBody" hidden>
+          <h3 id="nowTitle"></h3>
+          <div class="meta">
+            <span id="nowPlatform"></span>
+            <span id="nowPrize"></span>
+            <span id="nowEnds"></span>
+            <a id="nowRepo" target="_blank" rel="noopener">repository</a>
+            <a id="nowUrl" target="_blank" rel="noopener">contest page</a>
+          </div>
+          <div class="bar"><i id="nowBar"></i></div>
+          <div class="meta" style="margin-top:8px"><span id="nowPhase"></span><span id="nowFile"></span></div>
+        </div>
+      </div>
+      <div class="tiles" style="margin-top:14px">
+        <div class="tile"><b id="sFiles">0</b><span>files read</span></div>
+        <div class="tile"><b id="sLines">0</b><span>lines read</span></div>
+        <div class="tile"><b id="sHyp">0</b><span>hypotheses</span></div>
+        <div class="tile"><b id="sTests">0</b><span>exploit tests run</span></div>
+        <div class="tile ok"><b id="sPassed">0</b><span>tests passing</span></div>
+        <div class="tile amber"><b id="sConfirmed">0</b><span>findings confirmed</span></div>
+        <div class="tile"><b id="sUsd">$0</b><span>compute spent</span></div>
+      </div>
+    </div>
+    <div class="term" id="term"><div class="l"><span class="t">--:--:--</span><span class="cursor">booting</span></div></div>
+  </div>
+  <p class="note">During a contest the content of the work is confidential by the platform rules: you see the file being read, the counts and the log, not the bugs. When results are published, every hypothesis, test and report below opens in full.</p>
+
+  <h2>Contests</h2>
+  <div class="card">
+    <table>
+      <thead><tr><th>contest</th><th>platform</th><th>prize pool</th><th>status</th><th>findings</th><th>spent</th></tr></thead>
+      <tbody id="contests"><tr><td colspan="6" class="empty">nothing yet</td></tr></tbody>
+    </table>
+  </div>
+  <div id="reports"></div>
+
+  <h2>Ledger</h2>
+  <div class="grid two">
+    <div class="card">
+      <div class="meta" style="margin-bottom:8px">How every prize is split</div>
+      <div class="split"><i class="c" id="splitC"></i><i class="b" id="splitB"></i><i class="s" id="splitS"></i></div>
+      <div class="legend">
+        <span><i style="background:var(--ink)"></i><span id="legC">40%</span> compute (pays the next contests)</span>
+        <span><i style="background:#8b929c"></i><span id="legB">40%</span> buyback &amp; burn</span>
+        <span><i style="background:#cfd4da"></i><span id="legS">20%</span> creator</span>
+      </div>
+      <div class="tiles" style="margin-top:14px">
+        <div class="tile"><b id="lPrizes">$0</b><span>prizes won</span></div>
+        <div class="tile amber"><b id="lBurn">$0</b><span>sent to burn</span></div>
+        <div class="tile"><b id="lCompute">$0</b><span>compute fund</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <table>
+        <thead><tr><th>contest</th><th>prize</th><th>burn</th><th>proof</th></tr></thead>
+        <tbody id="ledger"><tr><td colspan="4" class="empty">no prize yet. Results take weeks after a contest ends.</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <h2 id="how">How it works</h2>
+  <div class="steps">
+    <div class="card"><b>1. Enter a contest</b><p>Public audit contests publish a repository, a scope and a deadline. Warden clones the code at the audited commit.</p></div>
+    <div class="card"><b>2. Read everything</b><p>The whole scope goes into the model's context. File by file it lists hypotheses of High and Medium bugs with a concrete attack path.</p></div>
+    <div class="card"><b>3. Prove or drop</b><p>For each hypothesis it writes a Foundry test that executes the attack against the real contracts. If the test does not pass after a few attempts, the hypothesis is dropped.</p></div>
+    <div class="card"><b>4. Judge, then report</b><p>A passing test is judged again as a strict contest judge would. Only then the report is written in the platform's format and submitted.</p></div>
+    <div class="card"><b>5. Prize to burn</b><p>Prizes are paid weeks later in stablecoins. The ledger above shows the split and the burn transaction for each one.</p></div>
+  </div>
+  <p class="note">Model: <span id="model"></span>. Budget per contest: $<span id="budget"></span>. Findings are submitted through the researcher account of the creator; nothing is disclosed before the platform publishes results.</p>
+
+  <footer><span id="ver"></span><span id="updated"></span><span id="mirror"></span></footer>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
