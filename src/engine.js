@@ -272,6 +272,7 @@ async function work(cid) {
         if (/^\s*NOT_EXPLOITABLE:/m.test(text)) {
           h.status = 'rejected'; h.verdict = text.match(/NOT_EXPLOITABLE:(.*)/)[1].trim().slice(0, 500);
           sec(`${h.id} withdrawn by the agent while writing the PoC: ${h.verdict}`);
+          pub(`hypothesis ${h.id} dropped by the agent while writing the exploit: not exploitable`, 'warn');
           outcome = 'rejected'; break;
         }
         const code = extractSolidity(text);
@@ -291,7 +292,7 @@ async function work(cid) {
         messages.push({ role: 'assistant', content: text }, { role: 'user', content: fixPrompt(res.feedback, i) });
       }
       if (outcome !== 'passed') {
-        if (outcome !== 'rejected') { h.status = 'unproven'; sec(`${h.id} unproven after ${h.iterations} attempts`); }
+        if (outcome !== 'rejected') { h.status = 'unproven'; sec(`${h.id} unproven after ${h.iterations} attempts`); pub(`hypothesis ${h.id} dropped: no passing exploit after ${h.iterations} attempts`, 'warn'); }
         forge.removePoc(dir, h.id);
         S.save(true);
         continue;
@@ -307,6 +308,7 @@ async function work(cid) {
       if (!v.valid || v.severity === 'Low') {
         h.status = 'rejected';
         sec(`${h.id} rejected by the judge (${v.severity}): ${v.reason}`);
+        pub(`hypothesis ${h.id} rejected by the judge (${v.severity}): the passing test does not prove a real ${h.severity}`, 'warn');
         forge.removePoc(dir, h.id);
         S.save(true);
         continue;
