@@ -18,7 +18,7 @@ a:hover { border-color: var(--ink); }
 header { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; padding: 6px 0 22px; border-bottom: 1px solid var(--line); }
 header h1 { margin: 0; display: flex; align-items: center; gap: 11px; font-family: var(--display); font-size: 27px; font-weight: 700; letter-spacing: -0.02em; }
 header h1 span, header h1 .wm { color: var(--ink); }
-header h1 .mark { width: 26px; height: 26px; color: var(--ink); flex: none; }
+header h1 .mark { height: 30px; width: auto; flex: none; margin-top: -2px; }
 header .tag { color: var(--dim); font-size: 14px; }
 header .right { margin-left: auto; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; font-size: 13.5px; }
 header .right a { color: var(--ink2); border: 0; }
