@@ -1,0 +1,11 @@
+{
+  "platform": "cantina",
+  "title": "Robinhood Chain bug bounty (Cantina)",
+  "url": "https://cantina.xyz/bounties/2acbecd1-3a5e-44fb-a324-a524c156d690",
+  "repoUrl": "",
+  "commit": null,
+  "prizePool": "Critical $1,000,000 / High $100,000 / Medium $25,000 / Low $5,000",
+  "scopeText": "src/AccessControlsRegistry.sol\nsrc/JustInTimeFunding.sol\nsrc/Roles.sol\nsrc/interfaces/IAccessControlsRegistry.sol",
+  "description": "Live bug bounty on Cantina for Robinhood Chain (the chain the WARDEN token itself launches on). In scope here: the on-chain tokenization and just-in-time funding contracts, whose VERIFIED source was pulled from the Robinhood Chain Blockscout explorer (solc 0.8.33). AccessControlsRegistry (roles/permissions for the whole system), JustInTimeFunding (funds a spender just in time for a purchase, via signed authorizations). Rewards: Critical $1,000,000, High $100,000, Medium $25,000, Low $5,000. A fully working PoC is mandatory; all PoCs run locally in Foundry (no testing against mainnet or public testnet). Prefer deep, protocol-specific logic bugs: signature/replay/nonce handling in JustInTimeFunding, role escalation or missing checks in AccessControlsRegistry, authorization expiry, fund draining, cross-contract trust.",
+  "knownIssues": "Anything requiring a privileged role (owner, admin, an account already granted a role in AccessControlsRegistry) to act maliciously is a trust assumption, not a finding. Arbitrum-authored bridge/rollup code is out of scope. Do not rely on faked state via vm.store/vm.etch/vm.mockCall. Gas, informational and best-practice notes are not accepted. The contracts are audited and deployed; only a genuinely new, exploitable bug pays."
+}
