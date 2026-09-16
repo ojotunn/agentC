@@ -23,6 +23,7 @@ async function tick() {
   $('updated').textContent = 'updated ' + hhmmss(s.generatedAt || Date.now()) + ' UTC';
   $('mirror').textContent = s.mirrored ? 'engine runs on the creator machine, mirrored here' : '';
   if (a.tokenUrl || a.tokenAddress) { const l = $('tokenLink'); l.hidden = false; l.href = a.tokenUrl || '#'; l.textContent = '$' + (a.symbol || 'WARDEN') + (a.tokenAddress ? ' ' + a.tokenAddress.slice(0, 6) + '…' + a.tokenAddress.slice(-4) : ''); }
+  if (a.tokenAddress) { const b = $('copyCa'); b.hidden = false; b.onclick = async () => { try { await navigator.clipboard.writeText(a.tokenAddress); } catch { prompt('Contract address', a.tokenAddress); } b.textContent = 'copied'; b.classList.add('ok'); setTimeout(() => { b.textContent = 'copy CA'; b.classList.remove('ok'); }, 1600); }; }
   if (a.x) { $('xLink').hidden = false; $('xLink').href = a.x; }
 
   const working = s.engine && s.engine.status === 'running';
