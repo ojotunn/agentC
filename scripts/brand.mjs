@@ -18,12 +18,12 @@ const MARK = (color, w) => `<svg viewBox="0 0 24 24" width="${w}" height="${w}" 
 const HEAD = `<meta charset="utf-8"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"><style>html,body{margin:0}body{font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}.d{font-family:"Space Grotesk",Inter,sans-serif}</style>`;
 
 // Avatar: fundo grafite, escudo branco grande. Le bem no circulo pequeno do X.
-const avatar = `<!doctype html><html><head>${HEAD}</head><body style="width:400px;height:400px;background:#111318;display:flex;align-items:center;justify-content:center">${MARK('#ffffff', 236)}</body></html>`;
+const avatar = `<!doctype html><html><head>${HEAD}</head><body style="width:400px;height:400px;background:#111318;display:flex;align-items:center;justify-content:center"><div class="d" style="font-size:250px;font-weight:700;color:#ffffff;letter-spacing:-0.04em;line-height:1;margin-top:-14px">W</div></body></html>`;
 
 // Capa: branco, escudo + wordmark grande, tagline e linha do token; a direita um
 // trecho de log em cinza bem claro, como textura.
 const banner = `<!doctype html><html><head>${HEAD}</head><body style="width:1500px;height:500px;background:#ffffff;position:relative;overflow:hidden;color:#111318">
-<div style="position:absolute;left:96px;top:104px;display:flex;align-items:center;gap:26px">${MARK('#111318', 78)}<div class="d" style="font-size:96px;font-weight:700;letter-spacing:-0.03em;line-height:1">Warden</div></div>
+<div style="position:absolute;left:96px;top:104px;display:flex;align-items:center;gap:26px"><div class="d" style="font-size:96px;font-weight:700;letter-spacing:-0.03em;line-height:1">Warden</div></div>
 <div style="position:absolute;left:96px;top:236px;width:900px;font-size:29px;color:#3f4650;font-weight:500;letter-spacing:-0.01em;line-height:1.3">AI security researcher. Every finding proven by a running exploit.</div>
 <div style="position:absolute;left:96px;top:300px;width:900px;font-size:22px;color:#6b7280;line-height:1.4">Works audit contests and bug bounties. Prizes buy back and burn $WARDEN on Robinhood Chain.</div>
 <div style="position:absolute;right:0;top:0;width:440px;height:500px;background:#fafafa;border-left:1px solid #e6e8eb;padding:40px 40px;font:15px/1.85 ui-monospace,'Cascadia Mono',Consolas,monospace;color:#9aa1ab;white-space:pre">00:30:22  reading src/Controller.sol
